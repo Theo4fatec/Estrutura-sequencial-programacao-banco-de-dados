@@ -106,6 +106,29 @@ BEGIN
 END
 $$
 
+--Exercício 1.7
+DO
+$$
+DECLARE
+    anoNascimento INTEGER;
+    anoAtual INTEGER;
+    idade INTEGER;
+    nome VARCHAR(200) := 'José Lima';
+    limite_inferior_nascimento INTEGER :=1980;
+    limite_superior_nascimento INTEGER :=2000;
+    limite_inferior_atual INTEGER :=2010;
+    limite_superior_atual INTEGER :=2020;
+BEGIN
+    anoNascimento := limite_inferior_nascimento + floor(random() * (limite_superior_nascimento - limite_inferior_nascimento + 1))::int;
+    anoAtual := limite_inferior_atual + floor(random() * (limite_superior_atual - limite_inferior_atual + 1))::int;
+    idade := anoAtual - anoNascimento;
+    RAISE NOTICE '% nasceu no ano %', nome, anoNascimento;
+    RAISE NOTICE 'O ano atual é o %', anoAtual;
+    RAISE NOTICE 'A idade do % é de % anos', nome, idade;
+END
+$$ 
+
+
 
 
 
