@@ -43,6 +43,27 @@ BEGIN
 END
 $$
 
+--Exercício 1.4
+DO
+$$
+DECLARE
+    numeroA NUMERIC(10,2);
+    numeroB NUMERIC(10,2);
+    numeroC NUMERIC(10,2);
+    delta NUMERIC(10,2);
+    limite_inferior INTEGER :=1;
+    limite_superior INTEGER :=10;
+BEGIN
+    numeroA := limite_inferior + (random() * (limite_superior - limite_inferior + 0.01))::numeric;
+    numeroB := limite_inferior + (random() * (limite_superior - limite_inferior + 0.01))::numeric;
+    numeroC := limite_inferior + (random() * (limite_superior - limite_inferior + 0.01))::numeric;
+    delta := numeroB ^ 2 -4 * numeroA * numeroC;
+    RAISE NOTICE 'O valor de A é %', numeroA;
+    RAISE NOTICE 'O valor de B é %', numeroB;
+    RAISE NOTICE 'O valor de C é %', numeroC;
+    RAISE NOTICE 'O delta é %', delta;
+END
+$$
 
 
 
