@@ -85,6 +85,27 @@ BEGIN
 END
 $$
 
+--Exercício 1.6
+DO
+$$
+DECLARE
+    medidaTerreno NUMERIC(10,2);
+    valorTerreno NUMERIC(10,2);
+    valorTotalTerreno NUMERIC(10,2);
+    limite_inferior_medida INTEGER :=1;
+    limite_superior_medida INTEGER := 10;
+    limite_inferior_valor INTEGER :=60;
+    limite_superior_valor INTEGER :=70;
+BEGIN
+    medidaTerreno := limite_inferior_medida +(random() * (limite_superior_medida - limite_inferior_medida + 0.01))::numeric;
+    valorTerreno := limite_inferior_valor +(random() * (limite_superior_valor - limite_inferior_valor + 0.01))::numeric;
+    valorTotalTerreno := medidaTerreno * valorTerreno;
+    RAISE NOTICE 'A medida do terreno é %', medidaTerreno;
+    RAISE NOTICE 'O valor do terreno é %', valorTerreno;
+    RAISE NOTICE 'O valor total do terreno é %', valorTotalTerreno;
+END
+$$
+
 
 
 
