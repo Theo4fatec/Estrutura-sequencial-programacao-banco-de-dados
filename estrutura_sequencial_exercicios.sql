@@ -27,6 +27,22 @@ BEGIN
 END
 $$
 
+--Exercício 1.3
+DO
+$$
+DECLARE
+    celsius NUMERIC(10,2);
+    fahrenheit NUMERIC(10,2);
+    limite_inferior INTEGER :=20;
+    limite_superior INTEGER :=30;
+BEGIN
+    celsius := limite_inferior + (random() * (limite_superior - limite_inferior + 0.01))::numeric;
+    fahrenheit := (9.0/5.0) * celsius + 32;
+    RAISE NOTICE 'Temperatura em Celsius é % graus', celsius;
+    RAISE NOTICE 'Temperatura convertida de Celsius para Fahrenheit é % graus', fahrenheit;
+END
+$$
+
 
 
 
