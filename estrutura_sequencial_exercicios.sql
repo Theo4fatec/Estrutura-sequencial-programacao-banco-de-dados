@@ -65,6 +65,26 @@ BEGIN
 END
 $$
 
+--Exercício 1.5
+DO
+$$
+DECLARE
+    n1 INTEGER;
+    raizCubica NUMERIC(10,2);
+    raizQuadrada NUMERIC(10,2);
+    limite_inferior INTEGER :=1;
+    limite_superior INTEGER := 100;
+BEGIN
+    n1 := limite_inferior + floor(random() * (limite_superior - limite_inferior + 1))::int;
+    raizCubica := ||/n1 -1;
+    raizQuadrada := |/n1 +1;
+    RAISE NOTICE 'O numero gerado é %', n1;
+    RAISE NOTICE 'Raiz Cubica do antecessor é %', raizCubica;
+    RAISE NOTICE 'Raiz Quadrada do sucessor é %', raizQuadrada;
+    --RAISE NOTICE ''
+END
+$$
+
 
 
 
